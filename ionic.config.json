@@ -1,0 +1,7 @@
+{
+  "name": "emedimatesApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

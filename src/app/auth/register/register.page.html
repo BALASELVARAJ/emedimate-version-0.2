@@ -1,0 +1,171 @@
+
+
+<ion-content  padding class="login auth-page" >
+    <div class="auth-content">
+        <div padding-horizontal text-center>
+            <div class="logo"></div>
+            <h3 no-margin>
+              <ion-text color="dark" class="fw700">
+                Create an Account
+              </ion-text>
+            </h3>
+          </div>
+        <!-- Register form -->
+        <form [formGroup]="onRegisterForm"  (submit)="onRegister()" class="list-form">
+            <input type="file" id="fileLoader" #fileLoader name="files" title="Load File" hidden />
+            <ion-buttons>
+                <button ion-button icon-left (click)="presentActionSheet(fileLoader)">
+                  <ion-icon name="camera"></ion-icon>Select Image
+                </button>
+                <button ion-button icon-left (click)="removePic()" [disabled]="uploadImage === null">
+                  <ion-icon name="trash"></ion-icon>Remove
+                </button>
+              </ion-buttons>
+              {{uploadImage}}
+              <span *ngIf="uploadImage != null">
+                  <img id="checkinImage" [src]="uploadImage" (load)="imageLoaded()" /> 
+                </span>
+          <ion-grid>
+            <ion-item class="animated fadeInUp" justify-content-center>
+              <ion-label position="floating">
+                Name
+              </ion-label>
+              <ion-input color="dark" type="text" formControlName="name"></ion-input>
+            </ion-item>
+            <p ion-text class="text08" *ngIf="onRegisterForm.get('name').touched && onRegisterForm.get('name').hasError('required')">
+              <ion-text color="warning">
+                Required Field
+              </ion-text>
+            </p>
+            <ion-item class="animated fadeInUp" justify-content-center>
+              <ion-label position="floating">
+                Password
+              </ion-label>
+              <ion-input color="dark" type="password" formControlName="password"></ion-input>
+            </ion-item>
+            <p ion-text color="warning" class="text08"
+              *ngIf="onRegisterForm.get('password').touched && onRegisterForm.get('password').hasError('required')">
+              <ion-text color="warning">
+                Required Field
+              </ion-text>
+            </p>
+            <ion-item class="animated fadeInUp" justify-content-center>
+              <ion-label position="floating">
+              Confirm Password
+              </ion-label>
+              <ion-input color="dark" type="password" formControlName="confirmPassword"></ion-input>
+            </ion-item>
+            <ion-item class="animated fadeInUp" justify-content-center>
+              <ion-label position="floating">
+                Age
+              </ion-label>
+              <ion-input color="dark" type="text" formControlName="age"></ion-input>
+            </ion-item>
+            <ion-item justify-content-center>
+                <ion-label position="floating">Gender</ion-label>
+                <ion-select formControlName="gender" >
+                  <ion-select-option  *ngFor="let gender of gender" [value]="gender.id">
+                    {{gender.name}}
+                  </ion-select-option >
+               </ion-select>
+              </ion-item>
+           
+            <ion-item class="animated fadeInUp" justify-content-center>
+              <ion-label position="floating">
+                country
+              </ion-label>
+              <ion-select formControlName="country">
+                <ion-select-option  *ngFor="let country of country" [value]="country.id">
+                  {{country.name}}
+                </ion-select-option >
+             </ion-select>
+           
+            </ion-item>
+            <ion-item class="animated fadeInUp" justify-content-center>
+              <ion-label position="floating">
+                city
+              </ion-label>
+              <ion-select formControlName="city" >
+                <ion-select-option  *ngFor="let city of city" [value]="city.id">
+                  {{city.name}}
+                </ion-select-option >
+             </ion-select>
+             
+            </ion-item>
+            <ion-item class="animated fadeInUp" justify-content-center>
+              <ion-label position="floating">
+                Contact Number
+              </ion-label>
+              <ion-input color="dark" type="text" formControlName="contactNo"></ion-input>
+            </ion-item>
+            <ion-item class="animated fadeInUp" justify-content-center>
+              <ion-label position="floating">
+                Professional Type
+              </ion-label>
+              <ion-select formControlName="pType"  >
+                <ion-select-option *ngFor="let pType of pType" [value]="pType.id">
+                  {{pType.name}}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item class="animated fadeInUp" justify-content-center>
+              <ion-label position="floating">
+               Education
+              </ion-label>
+              <ion-input color="dark" type="text" formControlName="education"></ion-input>
+            </ion-item>
+            <ion-item class="animated fadeInUp" justify-content-center>
+              <ion-label position="floating">
+                Speciality
+              </ion-label>
+              <ion-input color="dark" type="text" formControlName="speciality"></ion-input>
+            </ion-item>
+            <ion-item class="animated fadeInUp" justify-content-center>
+              <ion-label position="floating">
+               Employement Type
+              </ion-label>
+             
+                <ion-select formControlName="etype">
+                  <ion-select-option *ngFor="let eType of eType" [value]="eType.id">
+                    {{eType.name}}
+                  </ion-select-option>
+                </ion-select>
+              
+            </ion-item>
+            <ion-item class="animated fadeInUp" justify-content-center>
+              <ion-label position="floating">
+                Clinic or Institution Name
+              </ion-label>
+              <ion-input color="dark" type="text" formControlName="cName"></ion-input>
+            </ion-item>
+            <ion-item class="animated fadeInUp" justify-content-center>
+              <ion-label position="floating">
+                Blood Donor
+              </ion-label>
+              <ion-input color="dark" type="text" formControlName="bloodDonor"></ion-input>
+            </ion-item>
+            <ion-item class="animated fadeInUp" justify-content-center>
+              <ion-label position="floating">
+                Blood Group
+              </ion-label>
+              <ion-select formControlName="bloodGrp"  >
+                <ion-select-option *ngFor="let bloodGrp of bloodGrp" [value]="bloodGrp.id">
+                  {{bloodGrp.name}}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+            <div padding>
+              <ion-button size="large" color="dark" type="submit" [disabled]="onRegisterForm.invalid"  expand="block">Register</ion-button>
+            </div>
+          </ion-grid>
+          <div text-center margin-top>
+              <span (click)="goToLogin()" tappable>
+                <ion-text color="dark">
+                  <strong>I have an account!</strong>
+                </ion-text>
+              </span>
+            </div>
+        </form>
+    </div>
+  
+</ion-content>

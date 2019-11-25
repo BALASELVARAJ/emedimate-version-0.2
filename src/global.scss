@@ -1,0 +1,406 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+// s
+
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+ion-item {
+  --ion-item-background: transparent;
+}
+
+// backgrounds //
+.bg-white {
+  background-color: #fff;
+}
+
+.bg-light {
+  background-color: var(--ion-color-light);
+}
+
+.bg-dark {
+  background-color: var(--ion-color-dark);
+}
+
+.bg-primary {
+  background-color: var(--ion-color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--ion-color-secondary);
+}
+
+.bg-tertiary {
+  background-color: var(--ion-color-tertiary);
+}
+
+.bg-profile {
+  background-image: linear-gradient(135deg, var(--ion-color-background), var(--ion-color-dark))
+}
+
+.bg-main {
+  background-image: linear-gradient(-135deg, var(--ion-color-medium), var(--ion-color-light))
+}
+
+// Helpers //
+.w100 {
+  width: 100%;
+}
+
+.bold,
+.fw500 {
+  font-weight: 500 !important;
+}
+
+.fw700 {
+  font-weight: 700 !important;
+}
+
+.text08 {
+  font-size: .8rem;
+}
+
+.text1 {
+  font-size: 1rem !important;
+}
+
+.text12 {
+  font-size: 1.2rem;
+}
+
+.text15 {
+  font-size: 1.5rem;
+}
+
+.text20 {
+  font-size: 2rem;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-primary {
+  color: var(--ion-color-primary);
+}
+
+.text-secondary {
+  color: var(--ion-color-secondary);
+}
+
+.text-dark {
+  color: var(--ion-color-dark);
+}
+
+// menu //
+// Menu user profile
+ion-toolbar.user-profile {
+
+  .user-avatar {
+    width: 68px;
+    height: 68px;
+  }
+
+  .item-inner {
+    border-width: 0;
+  }
+}
+
+// Custom toolbar (overriding Shadow DOM)
+ion-toolbar {
+  &.ion-color-primary {
+    --ion-color-base: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary)) !important;
+  }
+}
+
+// Android card shadow
+ion-card {
+  &.sc-ion-card-md-h {
+    box-shadow: 0 2px 4px rgba(var(--ion-color-dark-rgb), .24);
+  }
+}
+
+// style for auth pages
+.auth-page {
+  background-image: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary));
+
+  .grid {
+    padding: 0;
+
+    .col {
+      padding: 0;
+    }
+  }
+
+  .btn-group {
+
+    .button-ios,
+    .button-md {
+      border-radius: 0;
+
+      &:first-of-type {
+        border-radius: 2px 0 0 2px;
+      }
+
+      &:last-of-type {
+        border-radius: 0 2px 2px 0;
+      }
+    }
+  }
+
+  .auth-content {
+    margin: 0 5%;
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      margin: 20px auto 8px;
+      border-radius: 10%;
+      background: url(assets/images/logo.png.png) no-repeat;
+      background-size: 100%;
+    }
+
+    .list-form {
+      padding: 0;
+      margin-bottom: 0;
+
+      ion-item {
+        background: none;
+        padding: 0;
+
+        &:first-child {
+          border-top: none;
+        }
+
+        &:after {
+          display: none;
+        }
+
+        ion-label {
+          font-size: 1em;
+          color: var(--ion-color-dark);
+        }
+
+        input {
+          color: var(--ion-color-dark);
+        }
+      }
+    }
+  }
+
+}
+
+// Custom Menu styles (overriding Shadow DOM)
+ion-menu {
+  ion-header {
+    ion-toolbar {
+      &.ion-color-dark {
+        --ion-color-base: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary)) !important;
+      }
+    }
+  }
+}
+
+.mto {
+  margin-top: 12px;
+
+  ion-icon {
+    margin-bottom: -2px;
+  }
+}
+
+body {
+  font-family: Roboto;
+}
+
+.mat-header-cell {
+  text-transform: capitalize;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.mat-row {
+  text-transform: capitalize;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 600;
+
+}
+
+#alert-1-hdr{
+  font-weight: bold !important;
+  font-size: 20px !important;
+}
+
+
+//  var css 
+// Font size helpers
+@for $size from 1 through 150 {
+  .fs-#{$size * 1} {
+    font-size: #{$size * 1}px;
+  }
+}
+
+// Font weight helpers
+@for $weight from 1 through 9 {
+  .fw-#{$weight * 100} {
+    font-weight: #{$weight * 100};
+  }
+}
+
+//Border-bottom helpers
+@for $borderBottom from 1 through 50 {
+  .bb-#{$borderBottom * 1} {
+    border-bottom: #{$borderBottom * 1}px solid #dadada;
+  }
+}
+//Border-radius helpers
+@for $borderBottom from 1 through 100 {
+  .br-#{$borderBottom * 1} {
+    border-radius: #{$borderBottom * 1}px;
+  }
+}
+
+
+// Line height helpers
+@for $lineHeight from 1 through 150 {
+  .lh-#{$lineHeight * 1} {
+    line-height: #{$lineHeight * 1}px;
+  }
+}
+
+//width in pixel
+
+@for $width from 1 through 1000{
+  .wpx-#{$width * 1}{
+    width: #{$width * 1}px;
+  }
+}
+//height in pixel
+
+@for $ht from 1 through 1000{
+  .hpx-#{$ht * 1}{
+    height: #{$ht * 1}px !important;
+  }
+}
+
+$percent:'%';
+
+//height in percent
+
+@for $heightPer from 1 through 100{
+  .hper-#{$heightPer * 1}{
+    height: #{$heightPer * 1}#{$percent};
+  }
+}
+
+//width in percentag
+@for $widthPer from 1 through 100{
+  .wper-#{$widthPer * 1}{
+    width: #{$widthPer * 1}#{$percent};
+  }
+}
+
+//opacity
+  @for $opSize from 0 through 100{
+    .op-#{$opSize}{
+      opacity: $opSize/100;
+    }
+  }
+
+
+// Padding helpers
+@for $i from 1 through 150 {
+
+  .padding-#{$i * 1}, .p-#{$i * 1},.pd-#{$i * 1} {
+    padding: #{($i * 1) + 'px'};
+  }
+
+  .padding-top-#{$i * 1}, .pt-#{$i * 1} {
+    padding-top: #{($i * 1) + 'px'};
+  }
+
+  .padding-right-#{$i * 1}, .pr-#{$i * 1} {
+    padding-right: #{($i * 1) + 'px'};
+  }
+
+  .padding-bottom-#{$i * 1}, .pb-#{$i * 1} {
+    padding-bottom: #{($i * 1) + 'px'};
+  }
+
+  .padding-left-#{$i * 1}, .pl-#{$i * 1} {
+    padding-left: #{($i * 1) + 'px'};
+  }
+
+  .padding-horizontal-#{$i * 1}, .ph-#{$i * 1} {
+    padding-left: #{($i * 1) + 'px'};
+    padding-right: #{($i * 1) + 'px'};
+  }
+
+  .padding-vertical-#{$i * 1}, .pv-#{$i * 1} {
+    padding-top: #{($i * 1) + 'px'};
+    padding-bottom: #{($i * 1) + 'px'};
+  }
+}
+
+//margin helpers
+
+
+@for $i from 1 through 150 {
+
+  .margin-#{$i * 1}, .m-#{$i * 1} {
+    margin: #{($i * 1) + 'px'};
+  }
+
+  .margin-top-#{$i * 1}, .mt-#{$i * 1} {
+    margin-top: #{($i * 1) + 'px !important'};
+  }
+
+  .margin-right-#{$i * 1}, .mr-#{$i * 1} {
+    margin-right: #{($i * 1) + 'px'};
+  }
+
+  .margin-bottom-#{$i * 1}, .mb-#{$i * 1} {
+    margin-bottom: #{($i * 1) + 'px'};
+  }
+
+  .margin-left-#{$i * 1}, .ml-#{$i * 1} {
+    margin-left: #{($i * 1) + 'px'};
+  }
+
+  .margin-horizontal-#{$i * 1}, .mh-#{$i * 1} {
+    margin-left: #{($i * 1) + 'px'};
+    margin-right: #{($i * 1) + 'px'};
+  }
+
+  .margin-vertical-#{$i * 1}, .mv-#{$i * 1} {
+    margin-top: #{($i * 1) + 'px'};
+    margin-bottom: #{($i * 1) + 'px'};
+  }
+}
+
+//position relative
+
+.posRelative{
+  position: relative;
+}
+
+//max and min width
+@for $width from 1 through 1000{
+  .wmpx-#{$width * 1}{
+    width: #{$width * 1}px;
+    min-width: #{$width * 1}px;
+    max-width: #{$width * 1}px;    
+  }
+}

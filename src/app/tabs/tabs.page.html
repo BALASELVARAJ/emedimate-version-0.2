@@ -1,0 +1,93 @@
+
+<!-- begin header menu definition -->
+<ion-menu side="start" type="overlay" menuId="mainMenu" class="main-menu">
+  <ion-header>
+    <ion-toolbar color="dark"  class="user-profile">
+      <ion-item margin-bottom>
+        <ion-avatar slot="start" class="user-avatar">
+          <img src="../../assets/images/avatar.jpeg">
+        </ion-avatar>
+        <ion-label>
+          <ion-text color="medium">
+            <h1><strong>Balaganesh</strong></h1>
+          </ion-text>
+          <ion-text color="secondary">
+            <h3>
+             Chennai, INDIA
+            </h3>
+          </ion-text>
+          <ion-menu-toggle class="mto" auto-hide="false">
+            <a class="text08" tappable (click)="goToEditProgile()">
+              <ion-text color="primary">
+                <ion-icon name="contact"></ion-icon>
+                <strong>edit profile</strong>
+              </ion-text>
+            </a> <ion-text color="secondary"> | </ion-text> 
+            <a class="text08" tappable (click)="logout()">
+              <ion-text color="primary">
+                <ion-icon name="log-out"></ion-icon>
+                <strong>logout</strong>
+              </ion-text>
+            </a>
+          </ion-menu-toggle>
+        </ion-label>
+      </ion-item>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="bg-profile">
+    <ion-list>
+      <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+        <ion-item [routerLink]="[p.url]" >
+          <ion-icon slot="start" [name]="p.icon" color="primary"></ion-icon>
+          <ion-label>
+            {{p.title}}
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+  
+</ion-menu>
+<!-- end header menu definition -->
+<!-- begin header -->
+<ion-header no-border>
+  <ion-toolbar mode="ios" color="dark">
+    <ion-title>
+     Emedimates
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!-- end header -->
+<ion-tabs main>
+<!-- filler header --> 
+<ion-header  no-border><ion-toolbar  color="dark"></ion-toolbar></ion-header>
+  <ion-tab-bar slot="bottom" color="dark"> 
+    <ion-tab-button tab="dashboard">
+      <ion-icon name="flash"></ion-icon>
+      <ion-label>dashboard</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="workers">
+      <ion-icon name="apps"></ion-icon>
+      <ion-label>Workers</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="donor">
+      <ion-icon name="apps"></ion-icon>
+      <ion-label>Blood donor</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="notifications">
+      <ion-icon name="send"></ion-icon>
+      <ion-label>Notifications</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="profile">
+      <ion-icon name="send"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>
