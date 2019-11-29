@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { WorkersPage } from './workers.page';
+import { SeekersPage } from './seekers.page';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
@@ -33,9 +33,9 @@ import { ModalPage } from '../modal/modal.page';
     MatIconModule,
     MatMenuModule,
     ReactiveFormsModule,
-    RouterModule.forChild([{ path: '', component: WorkersPage }])
+    RouterModule.forChild([{ path: '', component: SeekersPage }])
   ],
-  declarations: [WorkersPage,ModalPage],
+  declarations: [SeekersPage,ModalPage],
   entryComponents:[ModalPage]
 })
-export class WorkersPageModule {}
+export class SeekersPageModule {}

@@ -9,24 +9,33 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
-  <form>
+  <form [formGroup]="request" (ngSubmit)="logForm()">
     <ion-list>
       <ion-item>
-        <ion-label>Input</ion-label>
-        <ion-input></ion-input>
+        <ion-label>Worker Name</ion-label>
+        <ion-input type="text" formControlName="workerName" disabled></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Toggle</ion-label>
-        <ion-toggle slot="end"></ion-toggle>
+        <ion-label>Category</ion-label>
+        <ion-input type="text" formControlName="category" disabled></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Radio</ion-label>
-        <ion-radio slot="end"></ion-radio>
+        <ion-label>Gender</ion-label>
+        <ion-input type="text" formControlName="gender" disabled></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Checkbox</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-label>City</ion-label>
+        <ion-input type="text" formControlName="city" disabled></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Message</ion-label>
+        <ion-input type="text" formControlName="message"></ion-input>
       </ion-item>
     </ion-list>
+    <ion-row>
+      <ion-col offset="4">
+        <ion-button type="submit">Submit</ion-button>
+      </ion-col>
+    </ion-row>
   </form>
 </ion-content>

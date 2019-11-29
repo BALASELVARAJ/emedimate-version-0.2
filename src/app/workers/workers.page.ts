@@ -347,9 +347,10 @@ export class WorkersPage implements OnInit {
     console.log(e)
   }
 
-  async presentModal() {
+  async presentModal(data) {
     const modal = await this.modalController.create({
-      component: ModalPage
+      component: ModalPage,
+      componentProps:data
     });
     return await modal.present();
   }
