@@ -25,6 +25,10 @@
               <span *ngIf="uploadImage != null">
                   <img id="checkinImage" [src]="uploadImage" (load)="imageLoaded()" /> 
                 </span>
+
+                <ion-button fill="clear" expand="full" color="light" (click)="selectImage()">
+                  <ion-icon slot="start" name="camera"></ion-icon>
+                  Select Image</ion-button>
           <ion-grid>
             <ion-item class="animated fadeInUp" justify-content-center>
               <ion-label position="floating">

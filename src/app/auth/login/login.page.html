@@ -13,7 +13,7 @@
     </div>
 
     <!-- Login form -->
-    <form [formGroup]="onLoginForm" class="list-form">
+    <form [formGroup]="onLoginForm" class="list-form" (submit)="submit()">
       <ion-item no-padding class="animated fadeInUp">
         <ion-label position="floating">
           <ion-icon name="mail" item-start></ion-icon>
@@ -33,6 +33,12 @@
           Password
         </ion-label>
         <ion-input color="secondary" type="password" formControlName="password"></ion-input>
+        <ion-input clearOnEdit="false" #input  [type]="passwordType" 
+        formControlName="password" *ngIf="userDevice != 'Android'"></ion-input>
+        <button *ngIf="userDevice != 'Android'" ion-button clear color="dark" type="button" item-right class="passwordIcon" (click)="hideShowPassword(input)">
+          <ion-icon [name]="passwordIcon"> </ion-icon>
+        </button>
+
       </ion-item>
       <p ion-text color="warning" class="text08" *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
         <ion-text color="warning">
@@ -48,7 +54,7 @@
       </ion-text>
     </p>
     <div>
-      <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="goToHome()" [disabled]="!onLoginForm.valid" tappable>
+      <ion-button icon-left size="medium" expand="full" shape="round" color="dark"  [disabled]="!onLoginForm.valid" tappable>
         <ion-icon name="log-in"></ion-icon>
         Signin
       </ion-button>
