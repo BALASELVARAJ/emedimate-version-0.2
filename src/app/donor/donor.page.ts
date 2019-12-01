@@ -1,24 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 import { ModalPage } from '../modal/modal.page';
 import { ModalController } from '@ionic/angular';
 
 
-export interface workerData {
+export interface donorData {
   id: string;
   donorName: string;
   bloodGroup: string,
   category: string
 }
-export interface seekerData {
-  id: string;
-  donorName: string;
-  gender: number;
-  city: string,
-  category: string
-}
 
-const WORKER_DATA: workerData[] = [
+
+const DONOR_DATA: donorData[] = [
   {
     'id': '5d0e1b366d6cfc29512633a2',
     'donorName': 'Sanchez Kelley',
@@ -154,23 +147,24 @@ const WORKER_DATA: workerData[] = [
 })
 export class DonorPage implements OnInit {
 
-  displayedColumns: string[] = ['donorName', 'bloodGroup', 'category', 'star'];
-  dataSource = new MatTableDataSource(WORKER_DATA);
+  donors = [];
 
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor(public modalCtrl: ModalController) {
+
+  constructor(public modalController: ModalController){
 
   }
   ngOnInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+
+    this.donors = DONOR_DATA;
   }
-  public doFilter = (value: string) => {
-    this.dataSource.filter = value.trim().toLocaleLowerCase();
+ 
+  
+
+  async presentModal(data) {
+    const modal = await this.modalController.create({
+      component: ModalPage,
+      componentProps:data
+    });
+    return await modal.present();
   }
-  // openModal(){
-  //   let modal = this.modalCtrl.create(ModalPage);
-  //   modal.present();
-  // }
 }

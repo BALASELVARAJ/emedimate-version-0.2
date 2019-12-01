@@ -30,11 +30,22 @@ import { FilePath } from '@ionic-native/file-path/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 
 
+
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, BrowserAnimationsModule,HttpClientModule,HttpModule,
-  IonicModule.forRoot(),IonicStorageModule.forRoot(), AppRoutingModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    HttpModule,
+    IonicModule.forRoot(),
+    IonicStorageModule.forRoot(),
+    AppRoutingModule,
+    
+  ],
   providers: [
     StatusBar,
     SplashScreen,

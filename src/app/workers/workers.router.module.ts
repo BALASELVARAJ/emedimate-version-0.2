@@ -11,4 +11,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class MessagePageRoutingModule {}
+export class WorkersPageRoutingModule {}

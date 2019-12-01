@@ -12,6 +12,7 @@ import { FilePath } from '@ionic-native/file-path/ngx';
 
 import { finalize } from 'rxjs/operators';
 import { ToastServices } from 'src/app/services/toast';
+import { ApiProvider } from 'src/app/api/api';
  
 const STORAGE_KEY = 'my_images';
 @Component({
@@ -23,12 +24,15 @@ export class RegisterPage implements OnInit {
   processing:boolean;
   public uploadImage: any;
   public onRegisterForm: FormGroup;
- 
+  registerData;
   images = [];
-  constructor(private formBuilder: FormBuilder,  public navCtrl: NavController,private camera: Camera, private file: File, private http: HttpClient, private webview: WebView,
+  constructor(private formBuilder: FormBuilder, 
+     public navCtrl: NavController,
+     private camera: Camera, private file: File, private http: HttpClient, private webview: WebView,
     private actionSheetController: ActionSheetController, private toastController: ToastController,
     private storage: Storage, private platform: Platform, private loadingController: LoadingController,
-    private ref: ChangeDetectorRef, private filePath: FilePath,private _toast:ToastServices) { }
+    private ref: ChangeDetectorRef, private filePath: FilePath,private _toast:ToastServices,
+    private api:ApiProvider) { }
   gender: any[] = [
     {
       id: 1,
@@ -89,6 +93,16 @@ export class RegisterPage implements OnInit {
       name: 'Employer'
     }
   ];
+ bloodyes:any[] =[
+  {
+    id: 1,
+    name: 'Yes'
+  },
+  {
+    id: 2,
+    name: 'No'
+  }
+ ]
   bloodGrp: any[] = [
     {
       id: 1,
@@ -163,6 +177,15 @@ export class RegisterPage implements OnInit {
 
   onRegister(){
     console.log(this.onRegisterForm.value)
+
+    this.registerData = this.onRegisterForm.value;
+
+    this.api.register(this.registerData).subscribe((data:any) => { 
+     console.log(data)
+  }, err => {
+    console.log(err)
+  });
+
   }
   goToLogin(){
     this.navCtrl.navigateRoot('/login');

@@ -22,11 +22,17 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../workers/workers.module#WorkersPageModule'
-          },
-          // {
-          //   path: 'forms',
-          //   loadChildren: '../forms/forms.module#FormsPageModule'
-          // }
+          }
+        ]
+      },
+      {
+        path: 'seekers',
+        children: [
+          {
+            path: '',
+            loadChildren: '../seekers/seekers.module#SeekersPageModule'
+          }
+         
         ]
       },
       {

@@ -9,14 +9,22 @@ import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ModalPage implements OnInit {
 
-  private request : FormGroup;
+  private requestWorker : FormGroup;
+  private requestSeeker : FormGroup;
 
   @Input() data: {};
   constructor(public modalController: ModalController,
     private navParams : NavParams,
     private formBuilder: FormBuilder) {
-      this.request = this.formBuilder.group({
+      this.requestWorker = this.formBuilder.group({
         workerName: ['', Validators.required],
+        city: ['', Validators.required],
+        category: ['', Validators.required],
+        gender: ['', Validators.required],
+        message: [''],
+      });
+      this.requestSeeker = this.formBuilder.group({
+        seekerName: ['', Validators.required],
         city: ['', Validators.required],
         category: ['', Validators.required],
         gender: ['', Validators.required],
@@ -24,13 +32,25 @@ export class ModalPage implements OnInit {
       });
     console.log(this.navParams.data);
 
+
    }
 
   ngOnInit() {
-    this.request.patchValue(this.navParams.data)
+    if(this.navParams.data.workerName){
+      this.requestWorker.patchValue(this.navParams.data)
+    }
+    else{
+      this.requestSeeker.patchValue(this.navParams.data)
+    }
+
   }
-  logForm(){
-    console.log(this.request.value)
+  logForm(type){
+    if(type === 'worker'){
+      console.log(this.requestWorker.value)
+    }
+    else{
+      console.log(this.requestSeeker.value)
+    }
   }
 
   dismiss() {

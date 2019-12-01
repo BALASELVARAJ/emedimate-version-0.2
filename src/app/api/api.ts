@@ -12,8 +12,9 @@ import 'rxjs/Rx';
 @Injectable()
 export class ApiProvider {
   // private baseUrl = 'http://vetroapi.hakunamatata.io/';
-  private baseUrl = 'http://api.vconnect.gq/vetroliveapi/';
+  private baseUrl = 'http://localhost:49435/api';
   private signInApiUrl = 'account/Login';
+  private registerApiUrl = 'Customer/PostCustomerDetails';
   private forgotPasswordApiUrl = 'account/forgotPassword';
   private resetPasswordApiUrl = 'account/changePassword';
   
@@ -84,6 +85,9 @@ export class ApiProvider {
   }
   public signIn(signInData: any) { 
     return this.post(this.signInApiUrl, signInData);
+  }
+  public register(registerData: any) { 
+    return this.post(this.registerApiUrl, registerData);
   }
   public forgotPassword(forgotPasswordData: any) { 
     return this.post(this.forgotPasswordApiUrl, forgotPasswordData);

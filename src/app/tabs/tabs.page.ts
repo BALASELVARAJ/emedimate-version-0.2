@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router } from '@angular/router'
+import {Router, ActivatedRoute } from '@angular/router'
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
@@ -7,30 +7,52 @@ import {Router } from '@angular/router'
 })
 export class TabsPage implements OnInit {
     appPages;
-constructor(private router: Router){
+    routeName ;
+constructor(private router: Router,private activeRoute:ActivatedRoute){
   this.appPages = [
     {
-      title: 'Login',
-      url: '/login',
+      title: 'Dashboard',
+      url: '/tabs/dashboard',
       direct: 'root',
-      icon: 'log-in'
+      icon: 'flash'
+    },
+    {
+      title: 'Workers',
+      url: '/tabs/workers',
+      direct: 'root',
+      icon: 'information-circle-outline'
+    },
+    
+    {
+      title: 'Seekers',
+      url: '/tabs/seekers',
+      direct: 'root',
+      icon: 'information-circle-outline'
+    },
+    {
+      title: 'Donor',
+      url: '/tabs/donor',
+      direct: 'root',
+      icon: 'information-circle-outline'
+    },
+    {
+      title: 'Notification',
+      url: '/tabs/notification',
+      direct: 'root',
+      icon: 'information-circle-outline'
     },
     {
       title: 'Profile',
       url: '/tabs/profile',
       direct: 'root',
       icon: 'information-circle-outline'
-    },
-
-    {
-      title: 'App Settings',
-      url: '/settings',
-      direct: 'forward',
-      icon: 'cog'
     }
   ];
 }
   ngOnInit(){
-    console.log(this.router.url)
+    this.routeName = this.appPages.filter(page => page.url === this.router.url )[0].title;
+  }
+  getRouteName(routeName){
+      this.routeName = routeName;
   }
 }

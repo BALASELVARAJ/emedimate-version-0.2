@@ -14,28 +14,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatIconModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
 import { ModalPage } from '../modal/modal.page';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
-    FormsModule,
     IonicModule,
     CommonModule,
-    NgxDatatableModule,
-    MatSelectModule,
-    MatTableModule,
-    MatSortModule,
-    MatPaginatorModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FlexLayoutModule,
-    MatIconModule,
-    MatMenuModule,
-    ReactiveFormsModule,
+    SharedModule,
     RouterModule.forChild([{ path: '', component: SeekersPage }])
   ],
-  declarations: [SeekersPage,ModalPage],
-  entryComponents:[ModalPage]
+  declarations: [SeekersPage]
 })
 export class SeekersPageModule {}

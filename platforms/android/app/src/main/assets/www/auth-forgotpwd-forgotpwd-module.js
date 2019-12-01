@@ -58,7 +58,7 @@ var ForgotpwdPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>forgotpwd</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>forgotpwd</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -69,7 +69,7 @@ module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>forgotpwd</ion-t
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2F1dGgvZm9yZ290cHdkL2ZvcmdvdHB3ZC5wYWdlLnNjc3MifQ== */"
+module.exports = "#alert-1-hdr {\n  font-weight: bold !important; }\n\n#alert-2-msg {\n  font-size: medium; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXV0aC9mb3Jnb3Rwd2QvQzpcXFVzZXJzXFxSYWp1IFNcXERlc2t0b3BcXEVfTUVESU1BVEVTX0FQUFxcZW1lZGltYXRlLXZlcnNpb24tMC4yL3NyY1xcYXBwXFxhdXRoXFxmb3Jnb3Rwd2RcXGZvcmdvdHB3ZC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSw0QkFBNEIsRUFBQTs7QUFFaEM7RUFFSSxpQkFBaUIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2F1dGgvZm9yZ290cHdkL2ZvcmdvdHB3ZC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjYWxlcnQtMS1oZHJ7XHJcbiAgICBmb250LXdlaWdodDogYm9sZCAhaW1wb3J0YW50OyAgIFxyXG59XHJcbiNhbGVydC0yLW1zZ1xyXG57XHJcbiAgICBmb250LXNpemU6IG1lZGl1bTtcclxufSJdfQ== */"
 
 /***/ }),
 

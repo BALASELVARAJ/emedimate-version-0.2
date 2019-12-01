@@ -1,11 +1,11 @@
-:host {
-    ion-content {
-        --background: linear-gradient(135deg, var(--ion-color-backgroud), var(--ion-color-light)) !important;
-    }
-    ion-header {
-        --background: linear-gradient(135deg, var(--ion-color-backgroud), var(--ion-color-light)) !important;
-    }
-}
+// :host {
+//     ion-content {
+//         --background: linear-gradient(135deg, var(--ion-color-backgroud), var(--ion-color-light)) !important;
+//     }
+//     ion-header {
+//         --background: linear-gradient(135deg, var(--ion-color-backgroud), var(--ion-color-light)) !important;
+//     }
+// }
 .mat-table,.mat-paginator{
     background: none !important;
     //--background: linear-gradient(135deg, var(--ion-color-backgroud), var(--ion-color-light)) !important;
@@ -30,4 +30,36 @@
     color: black;
   }
 
- 
+  .worker-cards{
+    .item-title{
+      display: flex;
+      ion-avatar{
+        margin: 10px;
+        flex: 20%;
+      }
+     .item-inner{
+      margin-top: 20px;
+      flex: 60%;
+       h2{
+         margin-bottom: 1px;
+         margin-top: 0;
+         font-size: 18px;
+         font-weight: 100;
+       }
+       span{
+         color: grey;
+         font-size: 11px;
+         font-weight: 100;
+       }
+      
+     }
+     ion-icon{
+      flex: 10%;
+      padding: 20px;
+      font-size: 28px;
+     }
+    }
+        
+       
+   
+  }

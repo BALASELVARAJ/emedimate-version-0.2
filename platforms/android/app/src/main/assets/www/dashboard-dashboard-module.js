@@ -52,7 +52,7 @@ var DashboardPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header no-border>\n  <ion-toolbar mode=\"ios\">\n    <ion-title>\n      Dashboard\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content></ion-content>"
+module.exports = "<ion-header no-border>\r\n  <ion-toolbar mode=\"ios\">\r\n    <ion-title>\r\n      Dashboard\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n \r\n</ion-content>"
 
 /***/ }),
 
@@ -63,7 +63,7 @@ module.exports = "<ion-header no-border>\n  <ion-toolbar mode=\"ios\">\n    <ion
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".welcome-card ion-img {\n  max-height: 35vh;\n  overflow: hidden; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGFzaGJvYXJkL0M6XFxVc2Vyc1xcUmFqdSBTXFxEZXNrdG9wXFxlbWVkaW1hdGVzQXBwL3NyY1xcYXBwXFxkYXNoYm9hcmRcXGRhc2hib2FyZC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0I7RUFDaEIsZ0JBQWdCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9kYXNoYm9hcmQvZGFzaGJvYXJkLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi53ZWxjb21lLWNhcmQgaW9uLWltZyB7XG4gIG1heC1oZWlnaHQ6IDM1dmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG4iXX0= */"
+module.exports = ".welcome-card ion-img {\n  max-height: 35vh;\n  overflow: hidden; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGFzaGJvYXJkL0M6XFxVc2Vyc1xcUmFqdSBTXFxEZXNrdG9wXFxFX01FRElNQVRFU19BUFBcXGVtZWRpbWF0ZS12ZXJzaW9uLTAuMi9zcmNcXGFwcFxcZGFzaGJvYXJkXFxkYXNoYm9hcmQucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGdCQUFnQixFQUFBIiwiZmlsZSI6InNyYy9hcHAvZGFzaGJvYXJkL2Rhc2hib2FyZC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIud2VsY29tZS1jYXJkIGlvbi1pbWcge1xyXG4gIG1heC1oZWlnaHQ6IDM1dmg7XHJcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcclxufVxyXG4iXX0= */"
 
 /***/ }),
 
@@ -84,6 +84,8 @@ __webpack_require__.r(__webpack_exports__);
 var DashboardPage = /** @class */ (function () {
     function DashboardPage() {
     }
+    DashboardPage.prototype.ngOnInit = function () {
+    };
     DashboardPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-dashboard',

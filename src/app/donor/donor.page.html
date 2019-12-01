@@ -1,57 +1,17 @@
-<ion-header no-border>
-  <ion-toolbar mode="ios" color="dark">
-    <ion-title>
-     Donor Details
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
-  <div fxLayout fxLayoutAlign="center center">
-    <mat-form-field fxFlex="40%">
-      <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
-  </div>
-  
-
-    <table mat-table [dataSource]="dataSource" matSort >
-      <!-- Name Column -->
-      <ng-container matColumnDef="donorName" >
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> DonorName </th>
-        <td mat-cell *matCellDef="let element"> {{element.donorName}} </td>
-      </ng-container>
-    
-      <!-- Weight Column -->
-      <ng-container matColumnDef="bloodGroup">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Blood Group </th>
-        <td mat-cell *matCellDef="let element"> {{element.bloodGroup}} </td>
-      </ng-container>
-    
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="category">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
-        <td mat-cell *matCellDef="let element"> {{element.category}} </td>
-      </ng-container>
-      <ng-container matColumnDef="star" sticky>
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let element">
-            <mat-icon [matMenuTriggerFor]="appMenu">more_vert</mat-icon>
-          <mat-menu #appMenu="matMenu">
-            <button mat-menu-item expand="full" routerLink="/tabs/workers/form" routerDirection="forward">Settings</button>
-            <button mat-menu-item>Help</button>
-          </mat-menu>
-      </td>
-      </ng-container>
-   
-      
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-   
-    </table>
-   
-    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25]">
-    </mat-paginator>
-    
-  
-    <!-- <button ion-button (click)="openModal()">Open Modal</button> -->
+  <ion-card *ngFor="let item of donors" class="worker-cards">
+    <div class="item-title">
+     <ion-avatar item-start>
+       <img src="../../assets/images/avatar.png">
+     </ion-avatar>
+     <div class="item-inner">
+       <h2>{{item.donorName}}</h2>
+       <span>{{item.bloodGroup}} | {{item.category}}</span>
+     </div>
+     <ion-icon name="thumbs-up" (click)="presentModal(item)"></ion-icon>
+    </div>
+ 
+ </ion-card>
 </ion-content>

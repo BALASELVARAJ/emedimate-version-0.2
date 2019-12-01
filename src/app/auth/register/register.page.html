@@ -106,25 +106,25 @@
               <ion-label position="floating">
                 Professional Type
               </ion-label>
-              <ion-select formControlName="pType"  >
+              <ion-select formControlName="pType" [(ngModel)]="ProfessionalType">
                 <ion-select-option *ngFor="let pType of pType" [value]="pType.id">
                   {{pType.name}}
                 </ion-select-option>
               </ion-select>
             </ion-item>
-            <ion-item class="animated fadeInUp" justify-content-center>
+            <ion-item class="animated fadeInUp" justify-content-center *ngIf = "onRegisterForm.value.pType === 1">
               <ion-label position="floating">
                Education
               </ion-label>
               <ion-input color="dark" type="text" formControlName="education"></ion-input>
             </ion-item>
-            <ion-item class="animated fadeInUp" justify-content-center>
+            <ion-item class="animated fadeInUp" justify-content-center *ngIf = "onRegisterForm.value.pType === 1">
               <ion-label position="floating">
                 Speciality
               </ion-label>
               <ion-input color="dark" type="text" formControlName="speciality"></ion-input>
             </ion-item>
-            <ion-item class="animated fadeInUp" justify-content-center>
+            <ion-item class="animated fadeInUp" justify-content-center *ngIf = "onRegisterForm.value.pType === 1">
               <ion-label position="floating">
                Employement Type
               </ion-label>
@@ -136,7 +136,7 @@
                 </ion-select>
               
             </ion-item>
-            <ion-item class="animated fadeInUp" justify-content-center>
+            <ion-item class="animated fadeInUp" justify-content-center *ngIf = "onRegisterForm.value.pType === 1">
               <ion-label position="floating">
                 Clinic or Institution Name
               </ion-label>
@@ -146,9 +146,14 @@
               <ion-label position="floating">
                 Blood Donor
               </ion-label>
-              <ion-input color="dark" type="text" formControlName="bloodDonor"></ion-input>
+              
+              <ion-select formControlName="bloodDonor">
+                <ion-select-option *ngFor="let bloodyes of bloodyes" [value]="bloodyes.id">
+                  {{bloodyes.name}}
+                </ion-select-option>
+              </ion-select>
             </ion-item>
-            <ion-item class="animated fadeInUp" justify-content-center>
+            <ion-item class="animated fadeInUp" justify-content-center *ngIf = "onRegisterForm.value.bloodDonor === 1">
               <ion-label position="floating">
                 Blood Group
               </ion-label>

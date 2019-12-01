@@ -63,7 +63,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"common":"common","auth-forgotpwd-forgotpwd-module":"auth-forgotpwd-forgotpwd-module","auth-login-login-module":"auth-login-login-module","auth-register-register-module":"auth-register-register-module","dashboard-dashboard-module":"dashboard-dashboard-module","message-message-module":"message-message-module","notifications-notifications-module":"notifications-notifications-module","profile-profile-module":"profile-profile-module","tabs-tabs-module":"tabs-tabs-module"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"common":"common","auth-forgotpwd-forgotpwd-module":"auth-forgotpwd-forgotpwd-module","auth-login-login-module":"auth-login-login-module","auth-register-register-module":"auth-register-register-module","dashboard-dashboard-module":"dashboard-dashboard-module","default~donor-donor-module~notifications-notifications-module~workers-workers-module":"default~donor-donor-module~notifications-notifications-module~workers-workers-module","donor-donor-module":"donor-donor-module","notifications-notifications-module":"notifications-notifications-module","workers-workers-module":"workers-workers-module","profile-profile-module":"profile-profile-module","tabs-tabs-module":"tabs-tabs-module"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function

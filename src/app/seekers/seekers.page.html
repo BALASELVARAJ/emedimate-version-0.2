@@ -109,13 +109,13 @@
   
   </ion-card> -->
 
-  <ion-card *ngFor="let item of workers" class="worker-cards">
+  <ion-card *ngFor="let item of seekers" class="worker-cards">
      <div class="item-title">
       <ion-avatar item-start>
         <img src="../../assets/images/avatar.png">
       </ion-avatar>
       <div class="item-inner">
-        <h2>{{item.workerName}}</h2>
+        <h2>{{item.seekerName}}</h2>
         <span>{{item.gender}} | {{item.category}} | {{item.city}}</span>
       </div>
       <ion-icon name="thumbs-up" (click)="presentModal(item)"></ion-icon>
