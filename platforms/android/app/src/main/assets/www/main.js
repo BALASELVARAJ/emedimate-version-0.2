@@ -839,13 +839,13 @@ var map = {
 	],
 	"../donor/donor.module": [
 		"./src/app/donor/donor.module.ts",
-		"default~donor-donor-module~notifications-notifications-module~workers-workers-module",
+		"default~donor-donor-module~notifications-notifications-module~seekers-seekers-module~workers-workers~31d25d18",
 		"common",
 		"donor-donor-module"
 	],
 	"../notifications/notifications.module": [
 		"./src/app/notifications/notifications.module.ts",
-		"default~donor-donor-module~notifications-notifications-module~workers-workers-module",
+		"default~donor-donor-module~notifications-notifications-module~seekers-seekers-module~workers-workers~31d25d18",
 		"common",
 		"notifications-notifications-module"
 	],
@@ -853,9 +853,15 @@ var map = {
 		"./src/app/profile/profile.module.ts",
 		"profile-profile-module"
 	],
+	"../seekers/seekers.module": [
+		"./src/app/seekers/seekers.module.ts",
+		"default~donor-donor-module~notifications-notifications-module~seekers-seekers-module~workers-workers~31d25d18",
+		"common",
+		"seekers-seekers-module"
+	],
 	"../workers/workers.module": [
 		"./src/app/workers/workers.module.ts",
-		"default~donor-donor-module~notifications-notifications-module~workers-workers-module",
+		"default~donor-donor-module~notifications-notifications-module~seekers-seekers-module~workers-workers~31d25d18",
 		"common",
 		"workers-workers-module"
 	],
@@ -870,12 +876,6 @@ var map = {
 	"./auth/register/register.module": [
 		"./src/app/auth/register/register.module.ts",
 		"auth-register-register-module"
-	],
-	"./donor/donor.module": [
-		"./src/app/donor/donor.module.ts",
-		"default~donor-donor-module~notifications-notifications-module~workers-workers-module",
-		"common",
-		"donor-donor-module"
 	],
 	"./tabs/tabs.module": [
 		"./src/app/tabs/tabs.module.ts",
@@ -938,8 +938,9 @@ var ApiProvider = /** @class */ (function () {
         this.http = http;
         this.httpClient = httpClient;
         // private baseUrl = 'http://vetroapi.hakunamatata.io/';
-        this.baseUrl = 'http://api.vconnect.gq/vetroliveapi/';
+        this.baseUrl = 'http://localhost:49435/api';
         this.signInApiUrl = 'account/Login';
+        this.registerApiUrl = 'Customer/PostCustomerDetails';
         this.forgotPasswordApiUrl = 'account/forgotPassword';
         this.resetPasswordApiUrl = 'account/changePassword';
         // TDS 
@@ -996,6 +997,9 @@ var ApiProvider = /** @class */ (function () {
     };
     ApiProvider.prototype.signIn = function (signInData) {
         return this.post(this.signInApiUrl, signInData);
+    };
+    ApiProvider.prototype.register = function (registerData) {
+        return this.post(this.registerApiUrl, registerData);
     };
     ApiProvider.prototype.forgotPassword = function (forgotPasswordData) {
         return this.post(this.forgotPasswordApiUrl, forgotPasswordData);
@@ -1130,8 +1134,7 @@ var routes = [
     { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
     { path: 'login', loadChildren: './auth/login/login.module#LoginPageModule' },
     { path: 'register', loadChildren: './auth/register/register.module#RegisterPageModule' },
-    { path: 'forgotpwd', loadChildren: './auth/forgotpwd/forgotpwd.module#ForgotpwdPageModule' },
-    { path: 'donor', loadChildren: './donor/donor.module#DonorPageModule' },
+    { path: 'forgotpwd', loadChildren: './auth/forgotpwd/forgotpwd.module#ForgotpwdPageModule' }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -1158,7 +1161,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\r\n  <ion-router-outlet></ion-router-outlet>\r\n</ion-app>\r\n"
+module.exports = "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n"
 
 /***/ }),
 
@@ -1242,8 +1245,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_toast__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! src/app/services/toast */ "./src/app/services/toast.ts");
 /* harmony import */ var src_app_services_loader__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! src/app/services/loader */ "./src/app/services/loader.ts");
 /* harmony import */ var _services_encryption__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./services/encryption */ "./src/app/services/encryption.ts");
-/* harmony import */ var _ionic_native_Camera_ngx__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @ionic-native/Camera/ngx */ "./node_modules/@ionic-native/Camera/ngx/index.js");
-/* harmony import */ var _ionic_native_File_ngx__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @ionic-native/File/ngx */ "./node_modules/@ionic-native/File/ngx/index.js");
+/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
+/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
 /* harmony import */ var _ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @ionic-native/ionic-webview/ngx */ "./node_modules/@ionic-native/ionic-webview/ngx/index.js");
 /* harmony import */ var _ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @ionic-native/file-path/ngx */ "./node_modules/@ionic-native/file-path/ngx/index.js");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
@@ -1280,8 +1283,15 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]],
             entryComponents: [],
-            imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__["BrowserAnimationsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HttpClientModule"], _angular_http__WEBPACK_IMPORTED_MODULE_11__["HttpModule"],
-                _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _ionic_storage__WEBPACK_IMPORTED_MODULE_24__["IonicStorageModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"]],
+            imports: [
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__["BrowserAnimationsModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HttpClientModule"],
+                _angular_http__WEBPACK_IMPORTED_MODULE_11__["HttpModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
+                _ionic_storage__WEBPACK_IMPORTED_MODULE_24__["IonicStorageModule"].forRoot(),
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"],
+            ],
             providers: [
                 _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
                 _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
@@ -1297,8 +1307,8 @@ var AppModule = /** @class */ (function () {
                 _services_encryption__WEBPACK_IMPORTED_MODULE_19__["EncryptionServices"],
                 src_app_api_api__WEBPACK_IMPORTED_MODULE_13__["ApiProvider"],
                 src_app_services_interceptor__WEBPACK_IMPORTED_MODULE_12__["InterceptorProvider"],
-                _ionic_native_Camera_ngx__WEBPACK_IMPORTED_MODULE_20__["Camera"],
-                _ionic_native_File_ngx__WEBPACK_IMPORTED_MODULE_21__["File"],
+                _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_20__["Camera"],
+                _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_21__["File"],
                 _ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_22__["WebView"],
                 _ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_23__["FilePath"]
             ],
@@ -1898,7 +1908,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Raju S\Desktop\E_MEDIMATES_APP\emedimate-version-0.2\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/hmspl/Desktop/myApp/emedimate-version-0.2/src/main.ts */"./src/main.ts");
 
 
 /***/ })
